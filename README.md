@@ -11,6 +11,18 @@
 
 
 
+​	Quasar安装：
+
+​       **npm install -g @quasar/cli**
+
+
+
+​	项目启动指令：
+
+​	quasar dev**(git clone后需要拉取相关依赖)**
+
+
+
 ### 框架选择：
 
 ​		前端使用了**Vue**，使用的组件是**Quasar**（官方介绍称可以同时兼顾PC端和移动端，故这次没有选择之前项目中用过的Element-UI和Vant组件，也算一次新的尝试）
