@@ -14,8 +14,14 @@
         <q-toolbar-title>
           Quasar App
         </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
+        <div v-if="$store.state.user.isLogin">
+          ACCOUNT
+        </div>
+        <div v-else>
+          <q-avatar>
+            <img src="https://cdn.quasar.dev/img/avatar.png">
+          </q-avatar>
+        </div>
       </q-toolbar>
     </q-header>
 
