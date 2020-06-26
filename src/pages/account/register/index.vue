@@ -3,8 +3,22 @@
     <!-- content -->
     <div :class="{'row':true ,'justify-center':$q.screen.xs}">
       <div class="col-sm-4 offset-sm-2 col-xs-12 ">
-        <div class="text-h3 text-left q-pb-lg">Login</div>
+        <div class="text-h3 text-left q-pb-lg">Create Account</div>
         <q-form class="q-gutter-md" @submit="onSubmit" @reset="onReset">
+          <q-input
+            v-model="firstName"
+            outlined
+            label="First Name"
+            lazy-rules
+            :rules="[ val => val && val.length > 0 || 'Please type your First Name']"
+          />
+          <q-input
+            v-model="lastName"
+            outlined
+            label="Last Name"
+            lazy-rules
+            :rules="[ val => val && val.length > 0 || 'Please type your Last Name']"
+          />
           <q-input
             v-model="email"
             outlined
@@ -22,13 +36,19 @@
               />
             </template>
           </q-input>
-          <q-btn flat color="primary" :no-caps="true" label="Forget your password?" size="md" :dense="true" />
+
+          <q-input
+            v-model="confirmPassword"
+            outlined
+            type="password"
+            label="Confirm your password"
+            lazy-rules
+            :rules="[ val => val && val === password || 'Entered passwords differ!']"
+          />
           <!-- <q-toggle v-model="accept" label="I accept the license and terms" /> -->
           <div>
-            <q-btn label="Sign In" type="submit" color="primary" />
-            <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
+            <q-btn label="Create" type="submit" color="primary" />
           </div>
-          <q-btn to="/account/register" flat color="primary" :no-caps="true" label="Create account" size="md" :dense="true" />
         </q-form>
       </div>
     </div>
@@ -40,9 +60,12 @@ export default {
   // name: 'PageName',
   data () {
     return {
+      firstName: '',
+      lastName: '',
       isPwd: true,
       email: null,
-      password: null
+      password: null,
+      confirmPassword: null
       // accept: false
     }
   },

@@ -25,7 +25,7 @@
             </q-avatar>
           </div>
         </div>
-        <div class="q-px-lg">
+        <div :class="[$q.screen.xs ? q-px-xs : q-px-lg]">
           <q-btn flat color="white" text-color="white" label="Cart" icon="icon-gouwuchekong" />
         </div>
       </q-toolbar>
