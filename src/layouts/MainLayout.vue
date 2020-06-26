@@ -3,6 +3,7 @@
     <q-header elevated>
       <q-toolbar>
         <q-btn
+          v-if="$q.screen.lt.md"
           flat
           dense
           round
@@ -14,18 +15,24 @@
         <q-toolbar-title>
           Quasar App
         </q-toolbar-title>
-        <div v-if="$store.state.user.isLogin">
-          ACCOUNT
+        <div v-if="!$q.screen.xs">
+          <!-- <router-link  :to="{ path: '/account/login' }"> -->
+          <q-btn v-if="!$store.state.user.isLogin" to="/account/login" flat color="primary" text-color="white" label="Login or Create account" />
+          <!-- </router-link> -->
+          <div v-else>
+            <q-avatar>
+              <img src="https://cdn.quasar.dev/img/avatar.png">
+            </q-avatar>
+          </div>
         </div>
-        <div v-else>
-          <q-avatar>
-            <img src="https://cdn.quasar.dev/img/avatar.png">
-          </q-avatar>
+        <div class="q-px-lg">
+          <q-btn flat color="white" text-color="white" label="Cart" icon="icon-gouwuchekong" />
         </div>
       </q-toolbar>
     </q-header>
 
     <q-drawer
+      v-if="$q.screen.lt.md"
       v-model="leftDrawerOpen"
       show-if-above
       bordered

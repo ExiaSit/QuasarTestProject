@@ -4,7 +4,7 @@
     <div class="row justify-center q-pa-md">
       <div class="row q-col-gutter-lg">
         <div v-for="(item, index) in list" :key="index" class=" col-sm-3 col-xs-6 q-pt-md ">
-          <q-card class="my-card">
+          <q-card class="my-card cursor-pointer">
             <img :src="item.url">
 
             <q-list>
