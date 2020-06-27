@@ -20,12 +20,14 @@
           <q-btn v-if="!$store.state.user.isLogin" to="/account/login" flat color="primary" text-color="white" label="Login or Create account" />
           <!-- </router-link> -->
           <div v-else>
-            <q-avatar>
+            <!-- <q-avatar>
               <img src="https://cdn.quasar.dev/img/avatar.png">
-            </q-avatar>
+            </q-avatar> -->
+            <q-btn to="/account" flat color="primary" text-color="white" label="My Account" />
+            <q-btn flat color="primary" text-color="white" label="Log Out" @click="logOut()" />
           </div>
         </div>
-        <div :class="[$q.screen.xs ? q-px-xs : q-px-lg]">
+        <div :class="[$q.screen.xs ? 'q-px-xs' : 'q-px-lg']">
           <q-btn flat color="white" text-color="white" label="Cart" icon="icon-gouwuchekong" />
         </div>
       </q-toolbar>
@@ -116,6 +118,17 @@ export default {
           link: 'https://awesome.quasar.dev'
         }
       ]
+    }
+  },
+
+  beforeCreate() {
+    this.$store.commit('user/setUserInfo', { userName: 'zeyu peng', age: 18 })
+    this.$store.commit('user/loginSuccess')
+  },
+
+  methods: {
+    logOut() {
+      this.$store.commit('user/logOut')
     }
   }
 }
