@@ -128,6 +128,12 @@ export default {
 
   methods: {
     logOut() {
+      this.$q.notify({
+        message: '退出成功',
+        timeout: 1000,
+        position: 'center'
+      })
+
       this.$store.commit('user/logOut')
     }
   }

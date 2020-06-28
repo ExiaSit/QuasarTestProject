@@ -20,11 +20,20 @@
           Account Details
         </div>
         <div class="text-body1">
-          <div class="text-weight-medium q-mb-xs">
+          <div class="text-weight-medium q-mb-sm">
             {{ $store.state.user.userInfo.userName }}
           </div>
-          <div>
-            View Addresses({{ addressCount }})
+          <div id="defaultAddress">
+            <div class="text-weight-light q-mb-xs"> {{ defaultAddress.address1 }}</div>
+            <div class="text-weight-light q-mb-xs"> {{ defaultAddress.address2 }}</div>
+            <div class="text-weight-light q-mb-xs"> {{ defaultAddress.city }}</div>
+            <div class="text-weight-light q-mb-xs"> {{ defaultAddress.province }}</div>
+            <div class="text-weight-light q-mb-xs"> {{ defaultAddress.postalCode }}</div>
+            <div class="text-weight-light q-mb-xs"> {{ defaultAddress.country }}</div>
+            <div class="text-weight-light q-mb-xs"> {{ defaultAddress.phone }}</div>
+          </div>
+          <div @click="toAddress">
+            <span class="cursor-pointer">View Addresses({{ addressCount }})</span>
           </div>
         </div>
       </div>
@@ -38,8 +47,22 @@ export default {
   // name: 'PageName',
   data() {
     return {
+      defaultAddress: {
+        address1: 'address1',
+        address2: 'address2',
+        city: 'city',
+        province: 'province',
+        postalCode: 'postalCode',
+        country: 'country',
+        phone: 'phone'
+      },
       orderList: [],
-      addressCount: 0
+      addressCount: 2
+    }
+  },
+  methods: {
+    toAddress() {
+      this.$router.push({ path: '/account/addresses' })
     }
   }
 }

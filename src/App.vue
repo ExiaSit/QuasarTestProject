@@ -21,7 +21,6 @@ export default {
       if (iconName.startsWith('icon-') === true) {
         // we strip the "app:" part
         // const name = iconName.substring(4)
-        console.log('iconfont ' + iconName)
         return {
           cls: 'iconfont ' + iconName
         }
