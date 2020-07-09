@@ -9,7 +9,9 @@ const routes = [
       { path: '/account', component: () => import('pages/account/Index.vue') },
       { path: '/account/login', component: () => import('pages/account/login/Index.vue') },
       { path: '/account/register', component: () => import('pages/account/register/Index.vue') },
-      { path: '/account/addresses', component: () => import('pages/account/addresses/Index.vue') }
+      { path: '/account/addresses', component: () => import('pages/account/addresses/Index.vue') },
+      { path: '/cart', component: () => import('pages/cart/Index.vue') },
+      { path: '/products/:productId', component: () => import('pages/products/Index.vue') }
     ]
   }
 ]

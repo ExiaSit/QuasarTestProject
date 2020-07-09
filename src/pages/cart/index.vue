@@ -3,19 +3,17 @@
     <!-- content -->
     <div class="row">
       <div :class="['col-12','text-h4']">
-        My Account
+        Your Cart
       </div>
       <div :class="['col-12','col-md-6',$q.screen.lt.md ? 'q-py-sm':'q-py-lg' ]">
-        <div class="text-h6">
-          Order history
-        </div>
         <div class="text-body1">
-          <div v-if="orderList === [] || orderList.length ===0">
-            You haven't placed any orders yet.
+          <div v-if="cartList === [] || cartList.length ===0">
+            <div>Your cart is currently empty.</div>
+            <div>Continue browsing here.</div>
           </div>
         </div>
       </div>
-      <div :class="['col-12','col-md-6',$q.screen.lt.md ? 'q-py-sm':'q-py-lg' ]">
+      <!-- <div :class="['col-12','col-md-5',$q.screen.lt.md ? 'q-py-sm':'q-py-lg','offset-md-0', 'offset-xs-1' ]">
         <div class="text-h6">
           Account Details
         </div>
@@ -36,7 +34,7 @@
             <span class="cursor-pointer">View Addresses({{ addressCount }})</span>
           </div>
         </div>
-      </div>
+      </div> -->
 
     </div>
   </q-page>
@@ -56,7 +54,7 @@ export default {
         country: 'country',
         phone: 'phone'
       },
-      orderList: [],
+      cartList: [],
       addressCount: 2
     }
   },

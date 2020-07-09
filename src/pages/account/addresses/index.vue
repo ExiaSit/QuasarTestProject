@@ -2,16 +2,34 @@
   <q-page padding>
     <!-- content -->
     <div class="row">
-      <div :class="['col-md-5','col-xs-11','text-h4','offset-md-2','offset-xs-1']">
+      <div :class="['col-md-9','col-xs-12','text-h4']">
         My Account
       </div>
-      <div :class="['col-1',$q.screen.lt.md ? 'q-py-sm':'q-pb-lg','offset-xs-1' ]">
+      <div :class="['col-1',$q.screen.lt.md ? 'q-py-sm':'q-pb-lg', ]">
         <q-btn unelevated class="btn-fixed-width" color="primary" label="Add a New Address" />
       </div>
-      <div class="col-md-5 col-xs-11 offset-md-2 offset-xs-1" @click="toAccount">
+      <div class="col-12" @click="toAccount">
         <span class="cursor-pointer">Return to Account Details</span>
       </div>
-      <div :class="['col-11','col-md-5',$q.screen.lt.md ? 'q-py-sm':'q-py-lg','offset-md-2', 'offset-xs-1' ]">
+      <!-- <div class="col-12">
+        <div class="row inline">
+          <q-form class="q-gutter-md">
+
+            <q-input v-model="text" class="col-auto" label="First Name" stack-label />
+
+            <q-input
+              v-model="email"
+              class="col-auto"
+              outlined
+              label="Email"
+              lazy-rules
+              :rules="[ val => val && val.length > 0 || 'Please type your Email']"
+            />
+
+          </q-form>
+        </div>
+      </div> -->
+      <div :class="['col-12','col-md-6',$q.screen.lt.md ? 'q-py-sm':'q-py-lg' ]">
         <div class="text-h6">
           Your Addresses
         </div>
@@ -61,7 +79,9 @@ export default {
         postalCode: 'postalCode',
         country: 'country',
         phone: 'phone'
-      }]
+      }],
+      text: '',
+      email: ''
     }
   },
   methods: {

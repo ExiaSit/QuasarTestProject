@@ -28,7 +28,7 @@
           </div>
         </div>
         <div :class="[$q.screen.xs ? 'q-px-xs' : 'q-px-lg']">
-          <q-btn flat color="white" text-color="white" label="Cart" icon="icon-gouwuchekong" />
+          <q-btn flat color="white" to="/cart" text-color="white" label="Cart" icon="icon-gouwuchekong" />
         </div>
       </q-toolbar>
     </q-header>
@@ -55,7 +55,7 @@
       </q-list>
     </q-drawer>
 
-    <q-page-container>
+    <q-page-container :style="$q.screen.gt.md?'padding-left:20%;padding-right:20%':''">
       <router-view />
     </q-page-container>
   </q-layout>
